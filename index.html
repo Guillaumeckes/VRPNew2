@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Buy Luxury Homes & Villas in Phuket | Vanguard Realty Phuket</title>
+<meta name="description" content="Vanguard Realty Phuket — Best Luxury Boutique Real Estate Brokerage in Thailand. Luxury villas, new developments and investment properties in Phuket."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --gold:#c9a96e;--gold-dark:#a07c45;
+  --navy:#0d1b2a;--black:#0a0a0a;--white:#fff;
+  --off-white:#f8f6f2;--light:#f0ede8;--gray:#dedad4;
+  --text:#1a1a1a;--mid:#5a5550;--faint:#9a9490;
+  --serif:'Cormorant Garamond',serif;--sans:'Jost',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);font-weight:300;color:var(--text);background:var(--white);overflow-x:hidden}
+
+/* ── HEADER ── */
+header{position:fixed;top:0;left:0;right:0;z-index:900;height:80px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;transition:background .4s,box-shadow .4s}
+header.scrolled{background:rgba(255,255,255,.97);backdrop-filter:blur(12px);box-shadow:0 1px 0 rgba(201,169,110,.2)}
+.logo{display:flex;align-items:center;text-decoration:none}
+.logo img{height:54px;display:block}
+.nav-right{display:flex;align-items:center;gap:18px}
+.btn-touch{font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);padding:9px 22px;text-decoration:none;transition:all .3s;font-weight:500;white-space:nowrap}
+.btn-touch:hover{background:var(--gold);color:#fff}
+.hamburger{background:none;border:none;cursor:pointer;display:flex;flex-direction:column;gap:5px;padding:4px}
+.hamburger span{display:block;width:24px;height:2px;background:#fff;border-radius:1px;transition:all .35s}
+header.scrolled .hamburger span{background:var(--text)}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ── SIDENAV ── */
+.sidenav{position:fixed;top:0;right:-100%;width:min(380px,100vw);height:100vh;background:var(--navy);z-index:1000;transition:right .5s cubic-bezier(.25,.46,.45,.94);display:flex;flex-direction:column;padding:110px 48px 60px;box-shadow:-10px 0 40px rgba(0,0,0,.3)}
+.sidenav.open{right:0}
+.sidenav ul{list-style:none}
+.sidenav ul li{border-bottom:1px solid rgba(255,255,255,.08)}
+.sidenav ul li a{display:block;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.8);text-decoration:none;padding:15px 0;transition:color .25s,padding-left .25s}
+.sidenav ul li a:hover{color:var(--gold);padding-left:6px}
+.sidenav-sub{padding-left:16px;display:none}
+.sidenav-sub.open{display:block}
+.sidenav-sub a{font-size:.62rem!important;color:rgba(255,255,255,.45)!important;padding:8px 0!important}
+.sidenav-info{margin-top:auto;padding-top:28px;border-top:1px solid rgba(255,255,255,.1)}
+.sidenav-info p{font-size:.64rem;color:rgba(255,255,255,.35);line-height:2}
+.sidenav-info a{color:var(--gold);text-decoration:none}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:999;display:none;backdrop-filter:blur(2px)}
+.overlay.open{display:block}
+
+/* ── HERO ── */
+.hero{position:relative;height:100vh;overflow:hidden;display:flex;align-items:flex-end}
+.hero video{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);min-width:100%;min-height:100%;width:auto;height:auto;object-fit:cover}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,rgba(0,0,0,.1) 60%,transparent 100%)}
+.hero-content{position:relative;z-index:2;padding:0 56px 90px;max-width:700px}
+.hero-label{font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:12px}
+.hero-title{font-family:var(--serif);font-size:clamp(3rem,5.5vw,6rem);font-weight:300;color:#fff;line-height:1.05;letter-spacing:.02em}
+.hero-title em{font-style:italic;color:rgba(201,169,110,.9)}
+.hero-scroll{position:absolute;bottom:40px;right:56px;z-index:2;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5);writing-mode:vertical-rl;cursor:pointer}
+.hero-award{position:absolute;top:50%;right:56px;transform:translateY(-50%);z-index:2;text-align:center;border:1px solid rgba(201,169,110,.4);padding:18px 22px}
+.hero-award .aw-top{font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:4px}
+.hero-award .aw-main{font-family:var(--serif);font-size:1.1rem;font-weight:300;color:var(--gold);line-height:1.3}
+.hero-award .aw-sub{font-size:.54rem;letter-spacing:.12em;color:rgba(255,255,255,.5);margin-top:6px;line-height:1.6}
+@media(max-width:768px){.hero{height:100svh}.hero-content{padding:0 24px 70px}.hero-award{display:none}.hero-scroll{display:none}}
+
+/* ── SECTIONS GENERAL ── */
+.section-label{font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.section-title{font-family:var(--serif);font-size:clamp(2rem,4vw,3.4rem);font-weight:300;line-height:1.1;color:var(--text)}
+.section-title em{font-style:italic;color:var(--gold)}
+.section-body{font-size:.8rem;line-height:2;color:var(--mid)}
+
+/* ── FEATURED PROPERTIES ── */
+.featured{padding:90px 56px;background:var(--white)}
+.featured-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:10px}
+.featured-sub{font-family:var(--serif);font-size:clamp(1.2rem,2vw,1.8rem);font-style:italic;font-weight:300;color:var(--mid);margin-bottom:40px}
+.prop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.prop-card{position:relative;overflow:hidden;display:block;text-decoration:none;color:inherit;background:var(--light)}
+.prop-card-img{width:100%;aspect-ratio:4/3;overflow:hidden}
+.prop-card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s,filter .4s;filter:brightness(.88)}
+.prop-card:hover .prop-card-img img{transform:scale(1.05);filter:brightness(.7)}
+.prop-card-info{padding:18px 20px 22px;background:var(--white);border:1px solid var(--light);border-top:none}
+.prop-card-loc{font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.prop-card-price{font-size:1rem;font-family:var(--serif);font-weight:300;color:var(--text);margin-bottom:8px}
+.prop-card-specs{font-size:.6rem;color:var(--faint);display:flex;gap:14px;margin-bottom:10px}
+.prop-card-link{font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text);text-decoration:none;transition:color .3s}
+.prop-card:hover .prop-card-link{color:var(--gold)}
+.btn-outline{display:inline-block;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;border:1px solid var(--text);color:var(--text);padding:12px 30px;text-decoration:none;transition:all .3s}
+.btn-outline:hover{background:var(--gold);border-color:var(--gold);color:#fff}
+.featured-footer{text-align:center;margin-top:40px}
+@media(max-width:1024px){.prop-grid{grid-template-columns:repeat(2,1fr)}.featured{padding:70px 30px}}
+@media(max-width:600px){.prop-grid{grid-template-columns:1fr}}
+
+/* ── BOUTIQUE SECTION ── */
+.boutique{background:var(--off-white);overflow:hidden}
+.boutique-img{width:100%;height:520px;overflow:hidden;position:relative}
+.boutique-img img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.75)}
+.boutique-img-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,var(--off-white) 100%)}
+.boutique-cols{display:grid;grid-template-columns:280px 1fr 1fr;gap:0;border-top:1px solid var(--gray)}
+.boutique-col{padding:56px 48px;border-right:1px solid var(--gray)}
+.boutique-col:last-child{border-right:none}
+.boutique-col-1 .section-title{font-size:clamp(1.6rem,2.5vw,2.4rem);line-height:1.2}
+.boutique-col-2 p{font-family:var(--serif);font-size:clamp(1.2rem,1.8vw,1.5rem);font-style:italic;font-weight:300;color:var(--mid);line-height:1.65}
+.boutique-col-3 p{font-size:.82rem;line-height:2;color:var(--mid)}
+.boutique-col-3 p+p{margin-top:14px}
+@media(max-width:1024px){.boutique-img{height:380px}.boutique-cols{grid-template-columns:1fr 1fr}.boutique-col{padding:40px 30px}.boutique-col-1{grid-column:span 2;border-right:none;border-bottom:1px solid var(--gray)}}
+@media(max-width:640px){.boutique-cols{grid-template-columns:1fr}.boutique-col{border-right:none;border-bottom:1px solid var(--gray)}.boutique-col-1{grid-column:1}}
+
+/* ── WHY PHUKET ── */
+.why{padding:90px 56px;background:var(--white);border-top:1px solid var(--gray)}
+.why-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.why-stats{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:40px}
+.stat-num{font-family:var(--serif);font-size:clamp(3rem,5vw,5rem);font-weight:300;color:var(--gold);line-height:1;display:block}
+.stat-label{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--faint);margin-top:6px;display:block;line-height:1.5}
+.why-images{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:240px 240px;gap:3px}
+.why-img{overflow:hidden}
+.why-img:first-child{grid-row:span 2}
+.why-img img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.85);transition:transform .5s,filter .4s}
+.why-img:hover img{transform:scale(1.04);filter:brightness(1)}
+@media(max-width:1024px){.why-inner{grid-template-columns:1fr}.why-images{display:none}.why{padding:70px 30px}}
+
+/* ── SUDARA ── */
+.sudara{display:grid;grid-template-columns:1fr 1fr;background:var(--white);border-top:1px solid var(--gray)}
+.sudara-img{overflow:hidden;min-height:500px}
+.sudara-img img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.7)}
+.sudara-body{padding:70px 56px;display:flex;flex-direction:column;justify-content:center;background:var(--off-white)}
+.sudara-body .section-body{margin-top:18px}
+.sudara-body .section-body strong{color:var(--text);font-weight:500}
+@media(max-width:1024px){.sudara{grid-template-columns:1fr}.sudara-body{padding:50px 30px}}
+
+/* ── GET IN TOUCH / CONTACT ── */
+.contact-section{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--gray)}
+.contact-visual{position:relative;min-height:640px;overflow:hidden}
+.contact-visual img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.5)}
+.contact-visual-text{position:absolute;bottom:60px;left:56px;right:56px;z-index:2}
+.contact-visual-text .section-title{color:#fff;font-size:clamp(2rem,3.5vw,3rem)}
+.contact-form-wrap{padding:70px 56px;background:var(--white)}
+.form-label{font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:7px;display:block}
+.form-group{margin-bottom:16px}
+.form-group input,.form-group select,.form-group textarea{width:100%;background:var(--off-white);border:1px solid var(--gray);padding:13px 16px;font-family:var(--sans);font-size:.82rem;font-weight:300;color:var(--text);outline:none;transition:border-color .3s;appearance:none}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold);background:#fff}
+.form-group textarea{height:110px;resize:none}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.btn-submit{width:100%;background:var(--gold);color:#fff;border:none;padding:16px;font-family:var(--sans);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;font-weight:500;cursor:pointer;transition:background .3s;margin-top:6px}
+.btn-submit:hover{background:var(--gold-dark)}
+@media(max-width:1024px){.contact-section{grid-template-columns:1fr}.contact-visual{min-height:300px}.contact-visual-text{bottom:30px;left:30px;right:30px}.contact-form-wrap{padding:50px 30px}}
+@media(max-width:500px){.form-row{grid-template-columns:1fr}}
+
+/* ── FOOTER ── */
+footer{background:var(--black);padding:70px 56px 36px;border-top:1px solid rgba(201,169,110,.15)}
+.footer-grid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:48px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,.08)}
+.footer-logo img{height:42px;display:block;filter:brightness(0) invert(1) opacity(.8);margin-bottom:16px}
+.footer-brand-text{font-size:.72rem;line-height:1.9;color:rgba(255,255,255,.4)}
+.footer-contact{font-size:.72rem;color:rgba(255,255,255,.35);margin-top:12px;line-height:1.9}
+.footer-contact a{color:var(--gold);text-decoration:none}
+.footer-socials{display:flex;gap:10px;margin-top:20px}
+.social-link{width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:all .3s}
+.social-link:hover{border-color:var(--gold);background:rgba(201,169,110,.15)}
+.social-link svg{width:14px;height:14px;fill:rgba(255,255,255,.55);transition:fill .3s}
+.social-link:hover svg{fill:var(--gold)}
+.footer-col-title{font-size:.56rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.footer-col ul{list-style:none}
+.footer-col ul li{margin-bottom:10px}
+.footer-col ul li a{font-size:.72rem;color:rgba(255,255,255,.45);text-decoration:none;transition:color .3s}
+.footer-col ul li a:hover{color:var(--gold)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:26px;flex-wrap:wrap;gap:12px}
+.footer-copy{font-size:.62rem;color:rgba(255,255,255,.22)}
+.footer-legal{display:flex;gap:18px}
+.footer-legal a{font-size:.6rem;color:rgba(255,255,255,.3);text-decoration:none;transition:color .3s}
+.footer-legal a:hover{color:var(--gold)}
+@media(max-width:1024px){footer{padding:50px 30px 30px}.footer-grid{grid-template-columns:1fr 1fr;gap:36px}}
+@media(max-width:500px){.footer-grid{grid-template-columns:1fr}}
+
+/* ── WHATSAPP ── */
+.wa-btn{position:fixed;bottom:28px;right:28px;z-index:800;width:54px;height:54px;border-radius:50%;background:rgba(70,70,70,.3);border:2px solid rgba(255,255,255,.5);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:all .3s}
+.wa-btn:hover{background:rgba(201,169,110,.3);border-color:var(--gold);transform:scale(1.08)}
+</style>
+</head>
+<body>
+
+<div class="overlay" id="overlay" onclick="closeNav()"></div>
+
+<nav class="sidenav" id="sidenav">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="#" onclick="toggleSub(event,'propSub')">Properties ›</a>
+      <ul class="sidenav-sub" id="propSub">
+        <li><a href="listings.html?cat=Exquisite">Exquisite Collection</a></li>
+        <li><a href="listings.html?cat=New+Development">New Developments</a></li>
+        <li><a href="listings.html?cat=Luxury+Rental">Luxury Rentals</a></li>
+        <li><a href="listings.html?cat=Land">Lands</a></li>
+      </ul>
+    </li>
+    <li><a href="consultancy.html">Consultancy</a></li>
+    <li><a href="phuket-guide.html">Get to Know Phuket</a></li>
+    <li><a href="journal.html">Journal</a></li>
+    <li><a href="buyers-guide.html">Buyers Guide</a></li>
+    <li><a href="#contact">Get In Touch</a></li>
+  </ul>
+  <div class="sidenav-info">
+    <p>📞 <a href="tel:+66659855108">+66 65 985 5108</a></p>
+    <p>✉ <a href="mailto:sales@vanguardrealtyphuket.com">sales@vanguardrealtyphuket.com</a></p>
+  </div>
+</nav>
+
+<header id="hdr">
+  <a href="index.html" class="logo">
+    <img src="https://vanguardrealtyphuket.com/wp-content/themes/vanguardrealty.com/assets/images/logo.png" alt="Vanguard Realty Phuket">
+  </a>
+  <div class="nav-right">
+    <a href="#contact" class="btn-touch">Get In Touch</a>
+    <button class="hamburger" id="ham" onclick="toggleNav()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <video autoplay muted loop playsinline>
+    <source src="https://download-video-ak.vimeocdn.com/v3-1/playback/99fa7c23-9eec-45c5-b5d9-1753053cc84f/0bed7578-4ddfad4d?__token__=st=1775315825~exp=1775319425~acl=%2Fv3-1%2Fplayback%2F99fa7c23-9eec-45c5-b5d9-1753053cc84f%2F0bed7578-4ddfad4d%2A~hmac=d886278277189404edf06f4751fbf3c5b73e0df88113ec238c800bf1aae39989&r=dXMtZWFzdDE%3D" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-label">Luxury Lifestyle</p>
+    <h1 class="hero-title">Seamless Elegance<br>Along <em>Phuket's Shores</em></h1>
+  </div>
+  <div class="hero-award">
+    <div class="aw-top">★ Award Winner</div>
+    <div class="aw-main">Best Luxury Boutique<br>Real Estate Brokerage</div>
+    <div class="aw-sub">in Thailand<br>Luxury Lifestyle Awards</div>
+  </div>
+  <div class="hero-scroll" onclick="document.getElementById('featured').scrollIntoView({behavior:'smooth'})">scroll down</div>
+</section>
+
+<!-- FEATURED PROPERTIES -->
+<section class="featured" id="featured">
+  <div class="featured-header">
+    <div>
+      <p class="section-label">Featured Luxury</p>
+      <h2 class="section-title">Properties</h2>
+    </div>
+    <a href="listings.html" class="btn-outline" style="display:none" id="seeHomesTop">See Homes Now +</a>
+  </div>
+  <p class="featured-sub">We'll find your home, you'll write the stories</p>
+  <div class="prop-grid" id="propGrid">
+    <!-- Populated by JS -->
+    <div style="grid-column:span 3;padding:60px;text-align:center;color:var(--faint);font-size:.8rem;letter-spacing:.1em">Loading properties…</div>
+  </div>
+  <div class="featured-footer">
+    <a href="listings.html" class="btn-outline">See Homes Now +</a>
+  </div>
+</section>
+
+<!-- BOUTIQUE BROKERAGE -->
+<section class="boutique" id="about-section">
+  <div class="boutique-img">
+    <img src="https://vanguardrealtyphuket.com/wp-content/uploads/2025/03/VRP-Team.jpg" alt="Vanguard Realty Phuket Team">
+    <div class="boutique-img-overlay"></div>
+  </div>
+  <div class="boutique-cols">
+    <div class="boutique-col boutique-col-1">
+      <p class="section-label">About Us</p>
+      <h2 class="section-title">Boutique Luxury<br><em>Brokerage</em></h2>
+      <div style="margin-top:28px"><a href="about.html" class="btn-outline">Meet The Team +</a></div>
+      <div style="margin-top:28px;padding:18px;background:var(--white);border:1px solid var(--gray)">
+        <p style="font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);margin-bottom:5px">★ Award Winner</p>
+        <p style="font-size:.72rem;color:var(--mid);line-height:1.7">Best Luxury Boutique Real Estate Brokerage in Thailand — Luxury Lifestyle Awards</p>
+      </div>
+    </div>
+    <div class="boutique-col boutique-col-2">
+      <p>Vanguard Realty Phuket is a boutique luxury brokerage focusing on an exquisite collection of luxurious properties that redefine upscale living on the stunning island of Phuket.</p>
+    </div>
+    <div class="boutique-col boutique-col-3">
+      <p>Vanguard Realty Phuket stands for quality, discreet and personal, all in one, upmarket real estate transactions for our esteemed circle of discerning clients for which we are proud of.</p>
+      <p>Discover a world of sophistication, elegance and personalized service at Vanguard Realty Phuket. Highly recommended, luxury residential properties and high end dream homes choices, carefully selected and excellent for living or investment purposes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY PHUKET -->
+<section class="why">
+  <div class="why-inner">
+    <div>
+      <p class="section-label">Tropical Living, Smart Investing</p>
+      <h2 class="section-title">Why Buy Property<br>in <em>Phuket?</em></h2>
+      <p class="section-body" style="margin-top:20px">Phuket is a world-class destination renowned for its pristine beaches, turquoise waters, and lush tropical landscapes. Beyond its natural beauty, the island offers a sophisticated lifestyle with luxury resorts, fine dining, vibrant nightlife, and modern amenities.</p>
+      <p class="section-body" style="margin-top:12px">As one of Asia's top real estate hotspots, Phuket presents exceptional investment opportunities, whether you're looking for a holiday home, a beachfront villa, or a high-yield rental property.</p>
+      <div class="why-stats">
+        <div><span class="stat-num" data-target="35">0</span><span class="stat-label">Beaches</span></div>
+        <div><span class="stat-num" data-target="10" data-suffix="M+">0</span><span class="stat-label">Yearly Visitors</span></div>
+        <div><span class="stat-num" data-target="7">0</span><span class="stat-label">Golf Courses</span></div>
+        <div><span class="stat-num" data-target="14">0</span><span class="stat-label">International Schools</span></div>
+      </div>
+    </div>
+    <div class="why-images">
+      <div class="why-img"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80" alt="Phuket beaches"></div>
+      <div class="why-img"><img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=600&q=80" alt="Phuket lifestyle"></div>
+      <div class="why-img"><img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=600&q=80" alt="Phuket villa"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SUDARA -->
+<section class="sudara">
+  <div class="sudara-img">
+    <img src="https://images.unsplash.com/photo-1615880484746-a134be9a6ecf?w=900&q=80" alt="Sudara Bangtao">
+  </div>
+  <div class="sudara-body">
+    <p class="section-label">Our Investment Pick</p>
+    <h2 class="section-title">SUDARA,<br><em>Bangtao</em></h2>
+    <p class="section-body" style="margin-top:14px;font-family:var(--serif);font-style:italic;font-size:1.1rem;color:var(--gold)">A new chapter of beachside elegance</p>
+    <p class="section-body" style="margin-top:14px">Invest in the new era of Bangtao Beach and expect <strong>high return of investment and capital gain</strong>. Discover a lifestyle redefined at Sudara, where sophistication and Thai design converge amidst enchanting Bangtao Beach.</p>
+    <p class="section-body" style="margin-top:10px"><strong>Contact us today for a very limited VVIP developer launch offer on selective units.</strong></p>
+    <div style="margin-top:28px"><a href="listings.html" class="btn-outline">Discover More +</a></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div class="contact-section" id="contact">
+  <div class="contact-visual">
+    <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=1000&q=80" alt="Luxury villa Phuket">
+    <div class="contact-visual-text">
+      <h2 class="section-title">Find Your<br>Dream <em>Home</em></h2>
+    </div>
+  </div>
+  <div class="contact-form-wrap">
+    <p class="section-label">Get In Touch</p>
+    <h2 class="section-title" style="margin-bottom:28px">Let's <em>Connect</em></h2>
+    <div class="form-row">
+      <div class="form-group"><label class="form-label">First Name</label><input type="text" placeholder="First name"></div>
+      <div class="form-group"><label class="form-label">Last Name</label><input type="text" placeholder="Last name"></div>
+    </div>
+    <div class="form-group"><label class="form-label">Email</label><input type="email" placeholder="your@email.com"></div>
+    <div class="form-group"><label class="form-label">Phone</label><input type="tel" placeholder="+66 65 985 5108"></div>
+    <div class="form-group">
+      <label class="form-label">Preferred Location</label>
+      <select>
+        <option value="">Select a location…</option>
+        <option>Bangtao Beach & Laguna</option><option>Cape Panwa</option><option>Cape Yamu</option>
+        <option>Chalong</option><option>East Coast</option><option>Kamala Beach</option>
+        <option>Kata & Karon Beach</option><option>Layan Beach</option><option>Mai Khao</option>
+        <option>Naithon Beach</option><option>Natai Beach</option><option>Patong Beach</option>
+        <option>Phuket Town</option><option>Rawai Beach</option><option>Surin Beach</option>
+        <option>Thai Mueang</option><option>No preference</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="form-label">I am interested in</label>
+      <select>
+        <option>Buying a Property</option><option>Selling a Property</option>
+        <option>New Development</option><option>Investment Advisory</option><option>Luxury Rental</option>
+      </select>
+    </div>
+    <div class="form-group"><label class="form-label">Message</label><textarea placeholder="Tell us about your ideal property in Phuket…"></textarea></div>
+    <button class="btn-submit">Send Enquiry</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">
+        <img src="https://vanguardrealtyphuket.com/wp-content/themes/vanguardrealty.com/assets/images/logo.png" alt="Vanguard Realty Phuket">
+      </div>
+      <p class="footer-brand-text">Award-winning boutique luxury real estate brokerage in Phuket. Best Luxury Boutique Real Estate Brokerage in Thailand.</p>
+      <div class="footer-contact">
+        <p>📞 <a href="tel:+66659855108">+66 65 985 5108</a></p>
+        <p>✉ <a href="mailto:sales@vanguardrealtyphuket.com">sales@vanguardrealtyphuket.com</a></p>
+      </div>
+      <div class="footer-socials">
+        <a href="https://www.facebook.com/vanguardrealtyphuket" target="_blank" class="social-link" title="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a href="https://www.instagram.com/vanguardrealtyphuket" target="_blank" class="social-link" title="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="https://www.linkedin.com/company/vanguard-realty-phuket/" target="_blank" class="social-link" title="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+        <a href="https://youtube.com/channel/UCjitvPQLzQAic0xwpLImDKQ" target="_blank" class="social-link" title="YouTube"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon fill="#000" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+        <a href="https://www.tiktok.com/@vanguardrealtyphuket" target="_blank" class="social-link" title="TikTok"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.79a8.18 8.18 0 004.79 1.53V6.87a4.85 4.85 0 01-1.02-.18z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Real Estate</div>
+      <ul>
+        <li><a href="listings.html?cat=Exquisite">Exquisite Collection</a></li>
+        <li><a href="listings.html?cat=New+Development">New Developments</a></li>
+        <li><a href="listings.html?cat=Luxury+Rental">Luxury Rentals</a></li>
+        <li><a href="listings.html?cat=Land">Lands</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">The VRP Team</div>
+      <ul>
+        <li><a href="about.html">Meet The Team</a></li>
+        <li><a href="consultancy.html">Consultancy</a></li>
+        <li><a href="phuket-guide.html">Get to Know Phuket</a></li>
+        <li><a href="journal.html">Journal</a></li>
+        <li><a href="buyers-guide.html">Buyers Guide</a></li>
+        <li><a href="#contact">Get In Touch</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Resources</div>
+      <ul>
+        <li><a href="buyers-guide.html">Buyer's Guide</a></li>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms & Conditions</a></li>
+        <li><a href="disclaimer.html">Disclaimer</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 Vanguard Realty Phuket. All Rights Reserved.</span>
+    <div class="footer-legal">
+      <a href="disclaimer.html">Disclaimer</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms.html">Terms</a>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/660954191815" target="_blank" class="wa-btn" title="Chat on WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="26" height="26" fill="white"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.827.736 5.482 2.027 7.788L0 32l8.418-2.01A15.93 15.93 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 01-6.779-1.854l-.486-.289-5.002 1.195 1.234-4.87-.317-.499A13.239 13.239 0 012.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.862c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.631-.199-.897.199-.266.398-1.03 1.294-1.263 1.56-.232.266-.465.299-.863.1-.398-.199-1.681-.62-3.202-1.977-1.183-1.056-1.982-2.361-2.214-2.759-.232-.398-.025-.613.175-.811.179-.178.398-.465.597-.698.199-.232.266-.398.398-.664.133-.266.066-.498-.033-.697-.1-.199-.897-2.162-1.229-2.96-.324-.778-.653-.672-.897-.684l-.764-.013c-.266 0-.697.1-1.063.498-.365.398-1.394 1.362-1.394 3.322s1.427 3.853 1.626 4.119c.199.266 2.808 4.287 6.803 6.014.951.411 1.693.657 2.271.841.954.304 1.823.261 2.51.158.766-.114 2.354-.962 2.686-1.891.332-.929.332-1.726.232-1.891-.099-.166-.365-.266-.763-.465z"/></svg>
+</a>
+
+<script>
+// ── Sample property data (replace SHEET_URL with your Google Sheet CSV link) ──
+const SHEET_URL = 'YOUR_GOOGLE_SHEET_CSV_URL';
+const SAMPLE = [
+  {Title:'Modern 4-Bed Villa Rawai',Location:'Rawai Beach',Type:'Villa',Category:'Exquisite',Price:'฿23,750,000',Bedrooms:'4',Bathrooms:'3',SqMeters:'1129',ImageURL:'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=700&q=80'},
+  {Title:'Luxury Villa Anchan Tropicana',Location:'Thalang',Type:'Villa',Category:'Exquisite',Price:'฿29,600,000',Bedrooms:'3',Bathrooms:'3',SqMeters:'675',ImageURL:'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=700&q=80'},
+  {Title:'Sea View Infinity Pool Apartment',Location:'Layan Beach',Type:'Condominium',Category:'Exquisite',Price:'฿29,900,000',Bedrooms:'3',Bathrooms:'3',SqMeters:'272',ImageURL:'https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=700&q=80'},
+  {Title:'Anchan Hills Luxury Pool Villa',Location:'Bangtao',Type:'Villa',Category:'Exquisite',Price:'฿32,900,000',Bedrooms:'3',Bathrooms:'3',SqMeters:'526',ImageURL:'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=700&q=80'},
+  {Title:'Botanica Modern Pool Villa',Location:'Bangtao Beach',Type:'Villa',Category:'Exquisite',Price:'฿41,000,000',Bedrooms:'4',Bathrooms:'4',SqMeters:'532',ImageURL:'https://images.unsplash.com/photo-1613977257365-aaae5a9817ff?w=700&q=80'},
+  {Title:'4-Bed Sea View Villa Yamu Hill',Location:'Cape Yamu',Type:'Villa',Category:'Exquisite',Price:'฿41,000,000',Bedrooms:'4',Bathrooms:'4',SqMeters:'864',ImageURL:'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=700&q=80'},
+];
+
+async function loadProperties(){
+  let data = SAMPLE;
+  if(SHEET_URL !== 'YOUR_GOOGLE_SHEET_CSV_URL'){
+    try{
+      const r = await fetch(SHEET_URL);
+      const t = await r.text();
+      const rows = t.trim().split('\n');
+      const h = rows[0].split(',').map(x=>x.trim().replace(/"/g,''));
+      data = rows.slice(1).map(row=>{
+        const v = parseCSV(row);
+        const o = {};
+        h.forEach((k,i)=>o[k]=(v[i]||'').trim().replace(/^"|"$/g,''));
+        return o;
+      }).filter(l=>l.Title);
+    } catch(e){}
+  }
+  const exquisite = data.filter(l=>l.Category==='Exquisite').slice(0,6);
+  const show = exquisite.length ? exquisite : data.slice(0,6);
+  document.getElementById('propGrid').innerHTML = show.map(l=>`
+    <a href="listings.html" class="prop-card">
+      <div class="prop-card-img"><img src="${l.ImageURL||'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=700&q=80'}" alt="${l.Title}" loading="lazy"></div>
+      <div class="prop-card-info">
+        <p class="prop-card-loc">${l.Location||'Phuket'}</p>
+        <p class="prop-card-price">${l.Price||'Price on Request'}</p>
+        <div class="prop-card-specs">${l.Bedrooms?`<span>${l.Bedrooms} Beds</span>`:''}${l.SqMeters?`<span>${l.SqMeters} sq.m</span>`:''}</div>
+        <span class="prop-card-link">View Details +</span>
+      </div>
+    </a>`).join('');
+}
+function parseCSV(r){const o=[];let c='',q=false;for(let i=0;i<r.length;i++){if(r[i]==='"'){q=!q}else if(r[i]===','&&!q){o.push(c);c=''}else{c+=r[i]}}o.push(c);return o}
+
+// ── Animated stats ──
+function animateStat(el){
+  const target = parseInt(el.dataset.target);
+  const suffix = el.dataset.suffix || '';
+  let current = 0;
+  const step = target / 60;
+  const timer = setInterval(()=>{
+    current = Math.min(current + step, target);
+    el.textContent = Math.round(current) + (Math.round(current)===target ? suffix : '');
+    if(Math.round(current) >= target) clearInterval(timer);
+  }, 1800/60);
+}
+const statObs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.querySelectorAll('[data-target]').forEach(animateStat);
+      statObs.unobserve(e.target);
+    }
+  });
+},{threshold:0.3});
+const statsEl = document.querySelector('.why-stats');
+if(statsEl) statObs.observe(statsEl);
+
+// ── Nav ──
+function toggleNav(){
+  const open = document.getElementById('sidenav').classList.toggle('open');
+  document.getElementById('overlay').classList.toggle('open', open);
+  document.getElementById('ham').classList.toggle('open', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+}
+function closeNav(){
+  document.getElementById('sidenav').classList.remove('open');
+  document.getElementById('overlay').classList.remove('open');
+  document.getElementById('ham').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function toggleSub(e,id){
+  e.preventDefault();
+  document.getElementById(id).classList.toggle('open');
+}
+window.addEventListener('scroll',()=>{
+  document.getElementById('hdr').classList.toggle('scrolled', window.scrollY > 50);
+});
+
+loadProperties();
+</script>
+</body>
+</html>
